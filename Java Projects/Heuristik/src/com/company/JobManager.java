@@ -12,15 +12,19 @@ public class JobManager {
 
     public Job[] sortSPT(Job[] jobs){
         Arrays.sort(jobs, new SPTComparator());
+        calcCj(jobs);
+        calcTT(jobs);
         return jobs;
     }
 
     public Job[] sortEDD(Job[] jobs){
         Arrays.sort(jobs, new EDDComparator());
+        calcCj(jobs);
+        calcTT(jobs);
         return jobs;
     }
 
-    public void clacCj(Job[] jobs){
+    public void calcCj(Job[] jobs){
         int ct = 0;
         for(int i=0; i<jobs.length; i++){
             ct+= jobs[i].getPj();
@@ -30,41 +34,9 @@ public class JobManager {
     }
 
     public int calcTT(Job[] jobs){
-        int tj =0;
-        for(int i=0; i< jobs.length; i++){
-            //tj += Math.max(job.getCj() - job.getDj(), 0);
-            if(jobs[i].getCj() - jobs[i].getDj() > 0){
-                tj += jobs[i].getCj() - jobs[i].getDj();
-            }
-        }
-        return tj;
-    }
-
-    public Job[] firstFit(Job[] listOfJobs){
-        int firstTT = this.calcTT(listOfJobs);
-        for(int i = 1; i < listOfJobs.length; i++) {
-            Job[] tempListOfJobs = listOfJobs.clone();
-            tempListOfJobs[i - 1] = listOfJobs[i];
-            tempListOfJobs[i] = listOfJobs[i - 1];
-            if(this.calcTT(tempListOfJobs) < firstTT) {
-                return tempListOfJobs;
-            }
-        }
-        return listOfJobs;
-    }
-
-    public Job[] bestFit(Job[] listOfJobs) {
-        int lastBestFitTT = this.calcTT(listOfJobs);
-        Job[] lastBestFitListOfJobs = listOfJobs.clone();
-        for(int i = 1; i < listOfJobs.length; i++) {
-            Job[] tempListOfJobs = listOfJobs.clone();
-            tempListOfJobs[i - 1] = listOfJobs[i];
-            tempListOfJobs[i] = listOfJobs[i - 1];
-            if(this.calcTT(tempListOfJobs) < lastBestFitTT) {
-                lastBestFitTT = this.calcTT(tempListOfJobs);
-                lastBestFitListOfJobs = tempListOfJobs.clone();
-            }
-        }
-        return lastBestFitListOfJobs;
+        //kommt noch
+        for(int i=0; i<jobs.length; i++)
+        jobs[i].setTt(Math.max(jobs[i].getCj() - jobs[i].getDj(), 0));
+        return 0;
     }
 }

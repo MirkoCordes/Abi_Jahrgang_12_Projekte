@@ -1,7 +1,7 @@
 package com.company;
 
 public class Job {
-    private int id, pj, dj, cj;
+    private int id, pj, dj, cj, tt;
 
     public Job(int id, int pj, int dj){
         this.id = id;
@@ -27,5 +27,13 @@ public class Job {
 
     public void setCj(int cj) {
         this.cj = cj;
+    }
+
+    public void setTt(int tt) {
+        this.tt = tt;
+    }
+
+    public int getTt() {
+        return tt;
     }
 }

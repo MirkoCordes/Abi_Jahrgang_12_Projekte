@@ -1,25 +1,27 @@
 package com.company.MirkoCordes;
 
-public class Ampel {
-    boolean gruen, gelb, rot;
-    int position;
+import java.util.ArrayList;
 
-    public Ampel(int position){
-        this.position = position;
+public class Ampel {
+    private boolean isred;
+
+    ArrayList<Auto> carswaiting = new ArrayList<Auto>(0);
+    public Ampel(boolean isred) {
+        this.isred = isred;
+        initCars();
     }
 
-    public void ampelAufGruen(){
-        if(rot){
-            gelb=true;
-            try {
-                wait(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+    public boolean isIsred() {
+        return isred;
+    }
 
-            rot = false;
-            gelb = false;
-            gruen = true;
+    public void setIsred(boolean isred) {
+        this.isred = isred;
+    }
+
+    public void initCars() {
+        for (int i = 0; i < 100; i++) {
+            carswaiting.add(new Auto(2,2));
         }
     }
 }

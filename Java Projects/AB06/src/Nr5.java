@@ -11,15 +11,15 @@ public class Nr5 {
 		gewicht = scanner.nextFloat();
 		
 		if(gewicht <= 20) {
-			System.out.print("Preis = 0,80€");
+			System.out.print("Preis = 0,80 EUR");
 		} else if (gewicht <= 50) {
-			System.out.print("");
+			System.out.print("Preis = 0,95 EUR");
 		}else if (gewicht <= 500) {
-			System.out.print("");
+			System.out.print("Preis = 1,55 EUR");
 		}else if (gewicht <= 1000) {
-			System.out.print("");
+			System.out.print("Preis = 2,70 EUR");
 		}else {
-			System.out.print("");
+			System.out.print("Preis = 4,50 EUR");
 		}
 	}
 }

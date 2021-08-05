@@ -5,36 +5,27 @@ import java.time.LocalTime;
 import java.util.Timer;
 
 public class Auto {
-    boolean darfFahren, binDurch;
-    int id, warteZeit;
+    private int richtung;   // 1 -> Links | 2 -> Gradeaus | 3 -> Rechts
+    private int waiting;
 
-    public Auto(int id){
-        darfFahren = false;
-        this.id = id;
+    public Auto(int richtung, int waiting) {
+        this.richtung = richtung;
+        this.waiting = waiting;
     }
 
-
-    public void setDarfFahren(boolean darfFahren) {
-        this.darfFahren = darfFahren;
-
-        if(darfFahren){
-            setBinDurch(true);
-        }
+    public int getRichtung() {
+        return richtung;
     }
 
-    public void setBinDurch(boolean binDurch) {
-        this.binDurch = binDurch;
+    public void setRichtung(int richtung) {
+        this.richtung = richtung;
     }
 
-    public int getId() {
-        return id;
+    public int getWaiting() {
+        return waiting;
     }
 
-    public boolean isBinDurch() {
-        return binDurch;
-    }
-
-    public void setWarteZeit(int warteZeit) {
-        this.warteZeit = warteZeit;
+    public void setWaiting(int waiting) {
+        this.waiting = waiting;
     }
 }

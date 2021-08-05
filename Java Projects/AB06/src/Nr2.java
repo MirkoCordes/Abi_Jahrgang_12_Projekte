@@ -14,7 +14,7 @@ public class Nr2 {
 		System.out.print("1. Punkt y: ");
 		y1 = scanner.nextInt();
 		System.out.print("2. Punkt x: ");
-		x1 = scanner.nextInt();
+		x2 = scanner.nextInt();
 		System.out.print("2. Punkt y: ");
 		y2 = scanner.nextInt();
 		
